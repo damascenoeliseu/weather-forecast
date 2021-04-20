@@ -7,3 +7,8 @@ export const Container = styled.SafeAreaView`
    background-color: #e8f0ff;
    padding-top: 5%;
 `;
+
+export const List = styled.FlatList`
+   margin-top: 10px;
+   margin-left: 10px;
+`;
