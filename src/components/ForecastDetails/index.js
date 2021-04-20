@@ -1,29 +1,29 @@
 import React from 'react';
 import { Text } from 'react-native'
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { Container, Icon, DetailItem, MaterialIcon } from './styles';
+import { Container, DetailItem } from './styles';
 
 export default function ForecastDetails() {
    return (
       <Container>
          <DetailItem>
-            <Icon name='wind' size={23} color='#1ed6ff' />
+            <Feather name='wind' size={23} color='#1ed6ff' />
             <Text>7 km/h</Text>
          </DetailItem>
 
          <DetailItem>
-            <MaterialIcon name='weather-sunset-up' size={23} color='#1ed6ff' />
+            <MaterialCommunityIcons name='weather-sunset-up' size={23} color='#1ed6ff' />
             <Text>5:22 am</Text>
          </DetailItem>
 
          <DetailItem>
-            <MaterialIcon name='weather-sunset-down' size={23} color='#1ed6ff' />
+            <MaterialCommunityIcons name='weather-sunset-down' size={23} color='#1ed6ff' />
             <Text>6:31 pm</Text>
          </DetailItem>
 
-         
          <DetailItem>
-            <Icon name='droplet' size={23} color='#1ed6ff' />
+            <Feather name='droplet' size={23} color='#1ed6ff' />
             <Text>65</Text>
          </DetailItem>
       </Container>

@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Container = styled.View`
    margin-top: 15px;
@@ -10,10 +9,6 @@ export const Container = styled.View`
    justify-content: space-around;
    border-radius: 8px;
 `;
-
-export const Icon = styled(Feather)``;
-
-export const MaterialIcon = styled(MaterialCommunityIcons)``;
 
 export const DetailItem = styled.View`
    align-items: center;
