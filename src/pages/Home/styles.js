@@ -12,3 +12,8 @@ export const List = styled.FlatList`
    margin-top: 10px;
    margin-left: 10px;
 `;
+
+export const LoadingData = styled.Text`
+   font-size: 17px;
+   font-style: italic;
+`;
