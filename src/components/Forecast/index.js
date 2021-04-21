@@ -7,7 +7,7 @@ import { condition } from '../../utils/condition';
 import { Container, Date, Temperature } from './styles';
 
 export default function Forecast({ data }) {
-   let icon = condition(data.condition);
+   const icon = condition(data.condition);
 
    return (
       <Container>

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import * as Location from 'expo-location';
 
 import Menu from '../../components/Menu';
 import Header from '../../components/Header';
 import ForecastDetails from '../../components/ForecastDetails';
 import Forecast from '../../components/Forecast';
+
+import api, { key } from '../../services/api';
 
 import { Container, List } from './styles';
 
@@ -91,6 +94,47 @@ const myList = [
 ];
 
 export default function Home() {
+   const [errorMessage, setErrorMessage] = useState(null);
+   const [loading, setLoading] = useState(true);
+   const [weather, setWeather] = useState([]);
+   const [icon, setIcon] = useState({ name: 'cloud', color: '#fff' });
+   const [background, setBackground] = useState(['#1ed6ff', '#97c1ff']);
+
+   useEffect(() => {
+      (async () => {
+         const { status } = await Location.requestBackgroundPermissionsAsync();
+         if (status !== 'granted') {
+            setErrorMessage('Permission denied to access location.');
+            setLoading(false);
+            return;
+         }
+
+         const { coords } = await Location.getCurrentPositionAsync({});
+         //weather?key=435ca895&lat=-23.682&lon=-46.875
+         const { data } = await api.get(`weather?key=${key}&lat=${coords.latitude}&lon=${coords.longitude}`);
+         setWeather(data);
+
+         if (data.results.currently === 'noite') {
+            setBackground(['#0c3741', '#0f2f61']);
+         }
+
+         switch (data.results.condition_slug) {
+            case 'clear_day':
+               setIcon({ name: 'partly-sunny', color: '#ffb300' });
+               break;
+            case 'rain':
+               setIcon({ name: 'rainy', color: '#fff' });
+               break;
+            case 'storm':
+               setIcon({ name: 'rainy', color: '#fff' });
+               break;
+         }
+
+         setLoading(false);
+
+      })();
+   }, []);
+
    return (
       <Container>
          <Menu />
