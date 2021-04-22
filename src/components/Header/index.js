@@ -10,8 +10,8 @@ export default function Header({ background, icon, weather }) {
       <Container colors={background}>
          <Date>{results.date}</Date>
          <City>{results.city_name}</City>
-         <Ionicons name={icon.name} color={icon.color} size={150} />
+         <Ionicons name={icon.name} color={icon.headerColor} size={150} />
          <Temperature>{results.temp}°</Temperature>
       </Container>
    );
-}
+}''

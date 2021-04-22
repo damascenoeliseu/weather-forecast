@@ -27,7 +27,7 @@ export default function Search() {
    const [error, setError] = useState(null);
 
    const handleSearch = useCallback(async () => {
-      const { data } = await api.get(`weather?key=${key}&city_name=${input}`)
+      const { data } = await api.get(`weather?key=${key}&city_name=${input}`);
 
       if (data.by === 'default') {
          setError('City not found!');

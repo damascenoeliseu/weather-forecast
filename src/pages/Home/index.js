@@ -6,6 +6,8 @@ import Header from '../../components/Header';
 import ForecastDetails from '../../components/ForecastDetails';
 import Forecast from '../../components/Forecast';
 
+import { condition } from '../../utils/condition';
+
 import api, { key } from '../../services/api';
 
 import { Container, List, LoadingData } from './styles';
@@ -14,7 +16,7 @@ export default function Home() {
    const [errorMessage, setErrorMessage] = useState(null);
    const [loading, setLoading] = useState(true);
    const [weather, setWeather] = useState([]);
-   const [icon, setIcon] = useState({ name: 'cloud', color: '#fff' });
+   const [icon, setIcon] = useState({ name: 'cloud', headerColor: '#fff', color: '#1ec9ff' });
    const [background, setBackground] = useState(['#1ed6ff', '#97c1ff']);
 
    useEffect(() => {
@@ -36,20 +38,8 @@ export default function Home() {
             setBackground(['#0c3741', '#0f2f61']);
          }
 
-         switch (results.condition_slug) {
-            case 'clear_day':
-               setIcon({ name: 'partly-sunny', color: '#ffb300' });
-               break;
-            case 'rain':
-               setIcon({ name: 'rainy', color: '#fff' });
-               break;
-            case 'storm':
-               setIcon({ name: 'rainy', color: '#fff' });
-               break;
-         }
-
+         setIcon(condition(results.condition_slug));
          setLoading(false);
-
       })();
    }, []);
 
