@@ -44,7 +44,7 @@ export function condition(condition) {
          };
       case 'cloudly_night':
          return icon = {
-            name: 'cloudly-night-outline',
+            name: 'cloudy-night-outline',
             color: '#1ec9ff',
             headerColor: '#fff'
          };

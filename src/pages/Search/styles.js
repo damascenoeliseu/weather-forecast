@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { LinearGradient } from 'expo-linear-gradient';
 
 export const Container = styled.SafeAreaView`
    flex: 1;
@@ -33,6 +32,7 @@ export const SearchBox = styled.View`
    width: 90%;
    height: 50px;
    border-radius: 8px;
+   margin-bottom: 15px;
 `;
 
 export const Input = styled.TextInput`
@@ -42,30 +42,4 @@ export const Input = styled.TextInput`
    border-top-left-radius: 8px;
    border-bottom-left-radius: 8px;
    padding: 7px;
-`;
-
-export const Header = styled(LinearGradient)`
-   margin-top: 5%;
-   padding: 5% 0 5% 0;
-   width: 95%;
-   align-items: center;
-   justify-content: center;
-   border-radius: 8px;
-`;
-
-export const Date = styled.Text`
-   color: #fff;
-   font-size: 16px;
-`;
-
-export const City = styled.Text`
-   color: #fff;
-   font-size: 20px;
-   font-weight: bold;
-`;
-
-export const Temperature = styled.Text`
-   color: #fff;
-   font-size: 90px;
-   font-weight: bold;
 `;
