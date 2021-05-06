@@ -8,6 +8,8 @@ import api, { key } from '../../services/api';
 import ForecastDetails from '../../components/ForecastDetails';
 import Header from '../../components/Header';
 
+import { condition } from '../../utils/condition';
+
 import {
    Container,
    BackButton,
@@ -34,10 +36,10 @@ export default function Search() {
          setInput('');
          setWeather(null);
          Keyboard.dismiss();
-         
+
          return;
       }
-      
+
       setInput('');
       Keyboard.dismiss();
 
